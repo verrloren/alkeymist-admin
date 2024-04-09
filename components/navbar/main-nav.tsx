@@ -1,64 +1,41 @@
-"use client"
-
-import Image from "next/image"
+'use client'
 
 import { cn } from "@/lib/utils"
-import CustomLink from "../custom-link"
-import {
-	NavigationMenu,
-	NavigationMenuContent,
-	NavigationMenuItem,
-	NavigationMenuLink,
-	NavigationMenuList,
-	NavigationMenuTrigger,
-	navigationMenuTriggerStyle,
-} from "../ui/navigation-menu"
-import React from "react"
-import { Button } from "@/components/ui/button"
-import { useRouter } from 'next/navigation';
+import Link from "next/link";
+import { useParams, usePathname } from "next/navigation";
 
-export function MainNav() {
 
-	const router = useRouter();
+export default function MainNav({
+	className, 
+	...props
+}: React.HTMLAttributes<HTMLElement>) {
+
+	const pathname = usePathname();
+	const params = useParams();
+
+	const routes = [
+		{
+			href: `/${params.storeId}/settings`,
+			label: 'Settings',
+			active: pathname === `/${params.storeId}/settings`
+		}
+	];
 
 	return (
-		<div className="flex gap-4 items-center">
-			<Button onClick={() => router.push('/')} variant="ghost">
-				<Image
-					src="/images/logoRemove.png"
-					alt="Home"
-					width="100"
-					height="50"
-				/>
-			</Button>
-
-		</div>
+		<nav
+			className={cn("flex items-center space-x-4 lg:space-x-6", className)}
+		>
+			{routes.map((route) => (
+				<Link 
+					className={cn(
+						"text-sm font-medium transition-colors hover:text-primary",
+						route.active ? "text-neutral-900 dark:text-white" : "text-muted-foreground"
+					)}
+					key={route.label} 
+					href={route.href}>
+						{route.label}
+					</Link>
+			))}
+		</nav>
 	)
 }
-
-
-// const ListItem = React.forwardRef<
-//   React.ElementRef<"a">,
-//   React.ComponentPropsWithoutRef<"a">
-// >(({ className, title, children, ...props }, ref) => {
-//   return (
-//     <li>
-//       <NavigationMenuLink asChild>
-//         <a
-//           ref={ref}
-//           className={cn(
-//             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-//             className
-//           )}
-//           {...props}
-//         >
-//           <div className="text-sm font-medium leading-none">{title}</div>
-//           <p className="text-sm leading-snug line-clamp-2 text-muted-foreground">
-//             {children}
-//           </p>
-//         </a>
-//       </NavigationMenuLink>
-//     </li>
-//   )
-// })
-// ListItem.displayName = "ListItem"

@@ -10,7 +10,7 @@ export function LogoutButton() {
 			"use server";
 			await signOut();
 		}}>
-			<Button variant="ghost" type="submit">
+			<Button size="sm" variant="ghost" type="submit">
 				Log out
 			</Button>
 		</form>

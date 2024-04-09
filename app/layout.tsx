@@ -1,8 +1,7 @@
 import "./globals.css"
 import type { Metadata } from "next"
 import { DM_Sans } from "next/font/google"
-import Header from "@/components/navbar/header"
-// import { ThemeProvider } from "@/providers/theme-provider"
+import { ModalProvider } from "@/providers/modal-provider"
 
 const DM = DM_Sans({ subsets: ["latin"] })
 
@@ -16,9 +15,9 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
 		<html lang="en">
 			<body className={DM.className}>
 				{/* <ThemeProvider> */}
-					<div className="w-full">
-						<Header />
+					<div className="w-full ">
 						<main className="">
+							<ModalProvider />
 							{children}
 						</main>
 					</div>

@@ -1,31 +1,58 @@
-import { MainNav } from "@/components/navbar/main-nav"
+import Logo from "@/components/navbar/logo"
 import UserButton from "../user-button"
 import { LoginButton } from "@/components/auth/login-button"
 import { Button } from "@/components/ui/button"
 import { RegisterButton } from "../auth/register-button"
 import { auth } from "@/auth"
 import { signOut } from "next-auth/react"
-import { LogoutButton } from "../auth/logout-button"
+
 import Container from "@/components/container"
-import { ThemeToggle } from "../theme-toggle"
+import { HeaderAvatar } from "./header-avatar"
+import MainNav from "@/components/navbar/main-nav"
+import StoreSwitcher from "@/components/store-switcher"
+import { redirect } from "next/navigation"
+import { db } from "@/lib/db"
+// import { ThemeToggle } from "../theme-toggle"
+
 
 export default async function Header() {
 
 	const session = await auth();
+	const userId = session?.user?.id;
+
+	if (!userId) {
+		redirect("/auth/login")
+	};
+
+	const stores = await db.store.findMany({
+		where: {
+			userId
+		}
+	})
 
 	return (
+
 		<header className="w-full sticky flex justify-center 
 			border-b border-[#ebebeb] bg-white h-16">
 			<Container>
 				<div className="w-full h-full flex items-center justify-between">
-				{/* <div className="flex items-center justify-between w-full 
+					{/* <div className="flex items-center justify-between w-full 
 			max-w-6xl px-4 mx-auto sm:px-6"> */}
-					<MainNav />
-					{/* <UserButton /> */}
+					
+					<div className="flex flex-row gap-x-4 items-center justify-center">
+						<Logo />
+						<StoreSwitcher items={stores} />
+						<MainNav />
+					</div>
+
 					{session ? (
 
-						<LogoutButton />
-						
+						<div className="flex items-center">
+							
+							<HeaderAvatar src={session.user?.image} />
+						</div>
+
+
 					) : (
 						<div className="flex gap-4">
 							<LoginButton>

@@ -32,6 +32,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "app/dashboard/pag"  ],
   "exclude": ["node_modules"]
 }
