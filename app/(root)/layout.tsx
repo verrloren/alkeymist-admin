@@ -16,6 +16,7 @@ export default async function DashLayout({
 		redirect('/auth/login')
 	}
 
+
 	const store = await db.store.findFirst({
 		where: {
 			userId

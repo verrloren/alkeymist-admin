@@ -2,18 +2,20 @@ import "./globals.css"
 import type { Metadata } from "next"
 import { DM_Sans } from "next/font/google"
 import { ModalProvider } from "@/providers/modal-provider"
+import ToasterProvider from "@/providers/toaster-provider"
 
 const DM = DM_Sans({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-	title: "Alkeymist",
+	title: "Alkeymist Admin",
 	description:
-		"Alkeymist is a custom keyboards e-commerce store. We offer a wide range of custom keyboards, keycaps, and accessories. Admin panel for managing products and orders is also included.",
+		"Alkeymist Admin is a custom keyboards e-commerce store admin dashboard to add, remove and conrol all the content.",
 }
 export default function RootLayout({ children }: React.PropsWithChildren) {
 	return (
 		<html lang="en">
 			<body className={DM.className}>
+				<ToasterProvider />
 				{/* <ThemeProvider> */}
 					<div className="w-full ">
 						<main className="">
