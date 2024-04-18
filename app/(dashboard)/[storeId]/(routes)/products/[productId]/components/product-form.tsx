@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Category, Color, Image, Product, Size } from "@prisma/client";
+import { Category, Image, Product, Size } from "@prisma/client";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import axios from "axios";
@@ -25,7 +25,6 @@ const formSchema = z.object({
 	images: z.object({ url: z.string() }).array(),
 	price: z.coerce.number().min(1),
 	categoryId: z.string().min(1),
-	colorId: z.string().min(1),
 	sizeId: z.string().min(1),
 	isFeatured: z.boolean().default(false).optional(),
 	isArchived: z.boolean().default(false).optional(),
@@ -39,14 +38,12 @@ interface ProductFormProps {
 	} | null;
 	categories: Category[]
 	sizes: Size[];
-	colors: Color[];
 }
 
 export function ProductForm({
 	initialData,
 	categories,
 	sizes,
-	colors,
 }: ProductFormProps) {
 
 	const [open, setOpen] = useState(false);
@@ -69,7 +66,6 @@ export function ProductForm({
 			images: [],
 			price: 0,
 			categoryId: '',
-			colorId: '',
 			sizeId: '',
 			isFeatured: false,
 			isArchived: false
@@ -256,44 +252,6 @@ export function ProductForm({
 													value={size.id}
 												>
 													{size.name}
-												</SelectItem>
-											))}
-										</SelectContent>
-									</Select>
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
-
-						<FormField
-							control={form.control}
-							name="colorId"
-							render={({ field }) => (
-								<FormItem>
-									<FormLabel>Color</FormLabel>
-
-									<Select
-										disabled={loading}
-										onValueChange={field.onChange}
-										value={field.value}
-										defaultValue={field.value}
-									>
-										<FormControl>
-											<SelectTrigger>
-												<SelectValue
-													defaultValue={field.value}
-													placeholder="Select a color"
-												/>
-											</SelectTrigger>
-										</FormControl>
-
-										<SelectContent>
-											{colors.map((color) => (
-												<SelectItem
-													key={color.id}
-													value={color.id}
-												>
-													{color.name}
 												</SelectItem>
 											))}
 										</SelectContent>

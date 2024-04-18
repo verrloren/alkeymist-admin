@@ -1,6 +1,6 @@
 'use client'
 
-import { UseOrigin } from "@/hooks/use-origin";
+import { useOrigin } from "@/hooks/use-origin";
 import { useParams } from "next/navigation";
 import { ApiAlert } from "./api-alert";
 
@@ -15,7 +15,7 @@ export function ApiList({
 }: ApiListProps) {
 
 	const params = useParams();
-	const origin = UseOrigin();
+	const origin = useOrigin();
 
 	const baseUrl = `${origin}/api/${params.storeId}`
 

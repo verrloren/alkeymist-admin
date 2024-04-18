@@ -17,7 +17,7 @@ import { useParams, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { AlertModal } from "@/components/modals/alert-modal";
 import { ApiAlert } from "@/components/ui/api-alert";
-import { UseOrigin } from "@/hooks/use-origin";
+import { useOrigin } from "@/hooks/use-origin";
 
 interface SettingsFormProps {
 	initialData: Store;
@@ -29,7 +29,7 @@ export function SettingsForm({ initialData }: SettingsFormProps) {
 	const [loading, setLoading] = useState(false);
 	const params = useParams();
 	const router = useRouter();
-	const origin = UseOrigin();
+	const origin = useOrigin();
 
 
 	const formSchema = z.object({

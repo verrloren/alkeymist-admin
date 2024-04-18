@@ -27,11 +27,7 @@ export default async function ProductPage(
 		}
 	});
 
-	const colors = await db.color.findMany({
-		where: {
-			storeId: params.storeId
-		}
-	});
+
 
 
 
@@ -41,7 +37,6 @@ export default async function ProductPage(
 				<ProductForm
 					categories={categories}
 					sizes={sizes}
-					colors={colors}
 					initialData={product}
 				/>
 			</div>

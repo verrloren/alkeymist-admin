@@ -11,7 +11,7 @@ export default auth((req): any => {
 	const isLoggedIn = !!req.auth;
 
 	const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
-	const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
+	const isPublicRoute = publicRoutes.includes(nextUrl.pathname) || nextUrl.pathname.startsWith('/api/');
 	const isAuthRoute = authRoutes.includes(nextUrl.pathname);
 
 	//allow access to api auth routes
@@ -35,6 +35,7 @@ export default auth((req): any => {
 	//allow access to every other route
 	return null;
 })
+
 
 export const config = {
 	//invoking middleware for all routes except those that match the regex
