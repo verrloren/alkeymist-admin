@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { DM_Sans } from "next/font/google"
 import { ModalProvider } from "@/providers/modal-provider"
 import ToasterProvider from "@/providers/toaster-provider"
+// import { ThemeProvider } from "@/providers/theme-provider"
 
 const DM = DM_Sans({ subsets: ["latin"] })
 
@@ -15,8 +16,8 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
 	return (
 		<html lang="en">
 			<body className={DM.className}>
-				<ToasterProvider />
-				{/* <ThemeProvider> */}
+				{/* <ThemeProvider attribute="class" defaultTheme="dark" enableSystem > */}
+					<ToasterProvider />
 					<div className="w-full ">
 						<main className="">
 							<ModalProvider />

@@ -13,11 +13,17 @@ export default function Logo() {
 		<div className="flex gap-4 items-center">
 			<Button onClick={() => router.push('/')} variant="ghost">
 				<Image
-					src="/images/logoRemove.png"
+					src="/images/logoRemoveUpdated.png"
 					alt="Home"
 					width="100"
 					height="50"
 				/>
+				{/* <Image
+					src="/images/logoRemoveUpdated.png"
+					alt="Home"
+					width="100"
+					height="50"
+				/> */}
 			</Button>
 
 		</div>

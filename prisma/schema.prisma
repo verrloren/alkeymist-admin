@@ -131,7 +131,6 @@ model Product {
 
 
 	images 			Image[]
-	orders Order[]
 	orderItems OrderItem[]
 
 	@@index([storeId])
@@ -164,9 +163,6 @@ model Order {
 
 	storeId 		String
 	store 			Store @relation("StoreToOrder", fields: [storeId], references: [id])
-
-	productId 	String
-	product 	Product @relation(fields: [productId], references: [id])
 
 	@@index([storeId])
 }

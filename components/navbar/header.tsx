@@ -12,6 +12,7 @@ import MainNav from "@/components/navbar/main-nav"
 import StoreSwitcher from "@/components/store-switcher"
 import { redirect } from "next/navigation"
 import { db } from "@/lib/db"
+import { ModeToggle } from "../theme-toggle"
 // import { ThemeToggle } from "../theme-toggle"
 
 
@@ -33,7 +34,7 @@ export default async function Header() {
 	return (
 
 		<header className="w-full sticky flex justify-center 
-			border-b border-[#ebebeb] bg-white h-16">
+			border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#121212] h-16">
 			<Container>
 				<div className="w-full h-full flex items-center justify-between">
 					{/* <div className="flex items-center justify-between w-full 
@@ -43,6 +44,7 @@ export default async function Header() {
 						<Logo />
 						<StoreSwitcher items={stores} />
 						<MainNav />
+						{/* <ModeToggle /> */}
 					</div>
 
 					{session ? (

@@ -17,6 +17,9 @@ export async function GET (
 		const category = await db.category.findUnique({
 			where: {
 				id: params.categoryId,
+			},
+			include: {
+				billboard: true
 			}
 		});
 
