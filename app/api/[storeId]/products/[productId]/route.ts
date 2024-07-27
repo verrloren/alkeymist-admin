@@ -48,10 +48,13 @@ export async function PATCH (
 		const { 
 			name,
 			price,
+			newprice,
 			categoryId,
 			sizeId,
 			images,
 			isFeatured,
+			onCarousel,
+			onSale,
 			isArchived
 		 } = body;
 		
@@ -102,7 +105,10 @@ export async function PATCH (
 			data: {
 				name,
 				price,
+				newprice,
 				isFeatured,
+				onCarousel,
+				onSale,
 				isArchived,
 				categoryId,
 				sizeId,

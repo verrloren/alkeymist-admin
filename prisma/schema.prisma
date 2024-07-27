@@ -114,7 +114,10 @@ model Product {
 	id 					String  @id @default(uuid())
 	name 				String
 	price 			Decimal
+	newprice 		Decimal? 
 	isFeatured 	Boolean @default(false)
+	onCarousel 	Boolean @default(false)
+	onSale 			Boolean @default(false)
 	isArchived 	Boolean @default(false)
 	createdAt 	DateTime @default(now())
 	updatedAt 	DateTime @updatedAt

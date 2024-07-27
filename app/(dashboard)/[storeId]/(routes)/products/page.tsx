@@ -27,8 +27,11 @@ export default async function ProductsPage({
 		id: item.id,
 		name: item.name,
 		isFeatured: item.isFeatured,
+		onCarousel: item.onCarousel,
+		onSale: item.onSale,
 		isArchived: item.isArchived,
 		price: formatter.format(item.price.toNumber()),
+		newprice: item.newprice ? formatter.format(item.newprice.toNumber()) : null,
 		category: item.category.name,
 		size: item.size.name,
 		createdAt: format(item.createdAt, 'MMMM do, yyyy')

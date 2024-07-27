@@ -16,10 +16,13 @@ export async function POST (
 		const { 
 			name,
 			price,
+			newprice,
 			categoryId,
 			sizeId,
 			images,
 			isFeatured,
+			onCarousel,
+			onSale,
 			isArchived
 		 } = body;
 		
@@ -65,7 +68,10 @@ export async function POST (
 			data: {
 				name,
 				price,
+				newprice,
 				isFeatured,
+				onCarousel,
+				onSale,
 				isArchived,
 				categoryId,
 				sizeId,
@@ -101,6 +107,9 @@ export async function GET (
 		const categoryId = searchParams.get("categoryId") || undefined;
 		const sizeId = searchParams.get("sizeId") || undefined;
 		const isFeatured = searchParams.get("isFeatured");
+		const onCarouse = searchParams.get("onCarousel");
+		const onSale = searchParams.get("onSale");
+		const newprice = searchParams.get("newprice") || undefined;
 
 		if(!params.storeId) {
 			return new NextResponse('Store id is required', { status: 400 });
@@ -110,9 +119,12 @@ export async function GET (
 			where: {
 				storeId: params.storeId,
 				categoryId,
-				sizeId,
+				sizeId: sizeId && undefined,
 				isFeatured: isFeatured ? true : undefined,
-				isArchived: false,
+				onCarousel: onCarouse ? true : undefined,
+				onSale: onSale ? true : undefined,
+				newprice: newprice && undefined,
+				isArchived: false,	
 			},
 			include: {
 				images: true,
