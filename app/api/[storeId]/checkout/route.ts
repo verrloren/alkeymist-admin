@@ -49,7 +49,8 @@ export async function POST(
 				product_data: {
 					name: product.name
 				},
-				unit_amount: product.newprice ? product.newprice.toNumber() * 100 : product.price.toNumber() * 100
+				// unit_amount: Number(product.price) * 100
+				unit_amount: (product.newprice === '0' ? Number(product.newprice) : Number(product.price)) * 100
 				
 			}
 		})

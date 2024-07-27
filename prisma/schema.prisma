@@ -129,7 +129,7 @@ model Product {
 	categoryId 	String
 	category 	Category @relation("CategoryToProduct", fields: [categoryId], references: [id])
 
-	sizeId 			String
+	sizeId 			String @default("")
 	size 				Size @relation(fields: [sizeId], references: [id])
 
 

@@ -38,9 +38,9 @@ const formSchema = z.object({
   name: z.string().min(1),
   images: z.object({ url: z.string() }).array(),
   price: z.coerce.number().min(1),
-  newprice: z.coerce.number().min(1).optional(),
+  newprice: z.coerce.number().optional(),
   categoryId: z.string().min(1),
-  sizeId: z.string().optional(),
+  sizeId: z.string().min(1).optional(),
   isFeatured: z.boolean().default(false).optional(),
   onCarousel: z.boolean().default(false).optional(),
   onSale: z.boolean().default(false).optional(),
@@ -97,9 +97,15 @@ export function ProductForm({
         },
   });
 
+	const onErrors = (error: any) => {
+		console.log(error);
+		
+	}
+
   const onSubmit = async (data: ProductFormValues) => {
     try {
       setLoading(true);
+			
       if (initialData) {
         await axios.patch(
           `/api/${params.storeId}/products/${params.productId}`,
@@ -127,6 +133,7 @@ export function ProductForm({
       toast.success("Product deleted");
     } catch (error) {
       toast.error("Product is not deleted.");
+			console.error("Error creating/updating product: ", error);
     } finally {
       setLoading(false);
       setOpen(false);
@@ -160,7 +167,7 @@ export function ProductForm({
 
       <Form {...form}>
         <form
-          onSubmit={form.handleSubmit(onSubmit)}
+          onSubmit={form.handleSubmit(onSubmit, onErrors)}
           className="w-full space-y-8"
         >
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
@@ -287,7 +294,7 @@ export function ProductForm({
                     </FormControl>
 
                     <SelectContent>
-                      {sizes.map((size) => (
+                      {sizes?.map((size) => (
                         <SelectItem key={size.id} value={size.id}>
                           {size.name}
                         </SelectItem>
@@ -385,7 +392,8 @@ export function ProductForm({
                             />
                           </FormControl>
 
-                          {price <= field.value ? (
+													
+                          {price <= (field.value ?? 0) ? (
                             <FormMessage>
                               New price should be less than the original price.
                             </FormMessage>

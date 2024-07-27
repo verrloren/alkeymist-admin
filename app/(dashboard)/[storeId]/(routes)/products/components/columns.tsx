@@ -9,7 +9,7 @@ export type ProductColumn = {
   id: string;
   name: string;
 	price: string;
-	newprice: string;
+	newprice?: string;
 	size: string;
 	category:  string;
 	isFeatured: boolean;

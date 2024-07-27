@@ -25,6 +25,9 @@ export async function POST (
 			onSale,
 			isArchived
 		 } = body;
+
+		 console.log(body);
+		 
 		
 
 		if (!userId) {
@@ -119,11 +122,11 @@ export async function GET (
 			where: {
 				storeId: params.storeId,
 				categoryId,
-				sizeId: sizeId && undefined,
+				sizeId: sizeId ? sizeId : undefined,
 				isFeatured: isFeatured ? true : undefined,
 				onCarousel: onCarouse ? true : undefined,
 				onSale: onSale ? true : undefined,
-				newprice: newprice && undefined,
+				newprice: newprice ? newprice :  undefined,
 				isArchived: false,	
 			},
 			include: {
