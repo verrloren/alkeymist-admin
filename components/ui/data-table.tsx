@@ -29,12 +29,14 @@ interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
   searchKey: string;
+	categoryPath: string;
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
   searchKey,
+	categoryPath,
 }: DataTableProps<TData, TValue>) {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const router = useRouter();
@@ -65,7 +67,7 @@ export function DataTable<TData, TValue>({
         />
 
         <Button
-          onClick={() => router.push(`/${params.storeId}/billboards/new`)}
+          onClick={() => router.push(`/${params.storeId}/${categoryPath}/new`)}
         >
           <Plus className="mr-2 h-4 w-4" />
           Add new

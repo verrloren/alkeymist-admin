@@ -84,7 +84,6 @@ export function SettingsForm({ initialData, stores }: SettingsFormProps) {
 			<div className="w-full flex items-center justify-between">
 				<Heading
 					title="Settings"
-					description="Manage store settings"
 				/>
 
 				<Button
@@ -96,24 +95,22 @@ export function SettingsForm({ initialData, stores }: SettingsFormProps) {
 					<Trash className="h-4 w-4" />
 				</Button>
 			</div>
-
-			<Separator />
-
-			<StoreSwitcher items={stores} />
-			<Separator />
+			
+				<h1 className="dark:text-neutral-400">Switch store</h1>
+				<StoreSwitcher items={stores} />
 
 			<Form {...form}>
-				<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full">
-					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+				<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full md:w-80 xl:w-96">
+					<div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
 
 						<FormField
 							control={form.control}
 							name="name"
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>Name</FormLabel>
+									<FormLabel className="dark:text-neutral-400 text-nowrap w-full">Change Name</FormLabel>
 									<FormControl>
-										<Input disabled={loading} placeholder="Store name" {...field} />
+										<Input className="w-full md:w-80 xl:w-96" disabled={loading} placeholder="Store name" {...field} />
 									</FormControl>
 									<FormMessage />
 								</FormItem>
@@ -124,7 +121,7 @@ export function SettingsForm({ initialData, stores }: SettingsFormProps) {
 
 					<Button
 						disabled={loading}
-						className="ml-auto"
+						className="ml-auto w-full md:w-80 xl:w-96"
 						type="submit"
 					>
 						Save changes

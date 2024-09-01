@@ -24,18 +24,17 @@ export function CategoryClient({ data }: CategoryClientProps) {
 			<div className="flex items-center justify-between">
 				<Heading
 					title={`Categories ${data.length}`}
-					description="Manage your Categories here."
+					description=""
 				/>	
 
-				<Button onClick={() => router.push(`/${params.storeId}/categories/new`)}>
+				{/* <Button onClick={() => router.push(`/${params.storeId}/categories/new`)}>
 					<Plus className="mr-2 h-4 w-4" />
 					Add new
-				</Button>
+				</Button> */}
 			</div>
 
-			<Separator />
 
-			<DataTable searchKey="name" columns={columns} data={data} />
+			<DataTable searchKey="name" categoryPath="categories" columns={columns} data={data} />
 
 			<Heading 
 				title="API"

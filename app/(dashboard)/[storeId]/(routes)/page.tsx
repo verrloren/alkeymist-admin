@@ -22,7 +22,7 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
 	const graphRevenue = await getGraphRevenue(params.storeId);
 
 	return (
-		<div className="flex-col dark:bg-darker">
+		<div className="flex-col dark:bg-[#030303]">
 			<div className="flex-1 space-y-4 p-8 pt-6">
 				{/* <Heading title="Dashboard" description="Overview of your store" /> */}
 				<div className="grid gap-4 grid-cols-3">
@@ -31,7 +31,7 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
 							<CardTitle className="test-sm font-light">
 								Total Revenue
 							</CardTitle>
-							<DollarSign className="h-4 w-4 text-muted-foregroud" />
+							<DollarSign className="sm:block hidden h-4 w-4 text-muted-foregroud" />
 						</CardHeader>
 
 						<CardContent>
@@ -46,7 +46,7 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
 							<CardTitle className="test-sm font-light">
 								Sales
 							</CardTitle>
-							<CreditCard className="h-4 w-4 text-muted-foregroud" />
+							<CreditCard className="sm:block hidden h-4 w-4 text-muted-foregroud" />
 						</CardHeader>
 
 						<CardContent>
@@ -61,7 +61,7 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
 							<CardTitle className="test-sm font-light">
 								Product In Stock
 							</CardTitle>
-							<Package className="h-4 w-4 text-muted-foregroud" />
+							<Package className="sm:block hidden before:h-4 w-4 text-muted-foregroud" />
 						</CardHeader>
 
 						<CardContent>

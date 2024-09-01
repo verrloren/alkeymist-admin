@@ -58,7 +58,7 @@ export default function StoreSwitcher({ className, items = [] }: StoreSwitcherPr
           role="combobox"
           aria-expanded={open}
           aria-label="Select a store"
-          className={cn("justify-between w-full xl:w-1/4 text-neutral- dark:bg-neutral-950", className)}
+          className={cn("justify-between w-full md:w-80 xl:w-96 text-neutral- dark:bg-[#070707]", className)}
         >
           <StoreIcon className="mr-2 h-4 w-4" />
           {currentStore?.label}

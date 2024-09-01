@@ -34,21 +34,21 @@ export function ApiAlert({
 	}
 
 	return (
-		<Alert>
-			<Server className="h-4 w-4" />
-			<AlertTitle className="flex items-center gap-2-x">
+		<Alert className="mb-4">
+			<Server className="h-4 w-4 dark:text-neutral-200" />
+			<AlertTitle className="flex items-center gap-2-x dark:text-neutral-300">
 				{title}
 				<Badge variant={variantMap[variant]}>{textMap[variant]}</Badge>
 			</AlertTitle>
 
 			<AlertDescription className="mt-4 flex items-center justify-between">
-				<code className="relative rounded bd-muted px-[0.3rem] 
-					py-[0.2rem] font-mono text-sm font-semibold"
+				<code className="relative rounded bg-transparent px-[0.3rem] 
+					py-[0.2rem] font-mono text-sm font-semibold dark:text-neutral-600"
 				>
 					{description}
 				</code>
 				<Button variant="outline" size="icon" onClick={onCopy}>
-					<Copy className="w-4 h-4" />
+					<Copy className="w-4 h-4 dark:text-neutral-300" />
 				</Button>
 			 </AlertDescription>
 		</Alert>

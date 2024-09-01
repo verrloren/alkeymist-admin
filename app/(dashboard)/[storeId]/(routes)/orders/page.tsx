@@ -44,7 +44,7 @@ export default async function OrdersPage({
 	}))
 
 	return (
-		<div className="flex-col">
+		<div className="flex-col dark:bg-[#030303]">
 			<div className="flex-1 space-g-4 p-8 pt-6">
 				<OrderClient data={formattedOrders} />
 			</div>

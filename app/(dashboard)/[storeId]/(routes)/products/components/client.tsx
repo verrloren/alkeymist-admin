@@ -24,24 +24,16 @@ export function ProductClient({ data }: ProductClientProps) {
 			<div className="flex items-center justify-between">
 				<Heading
 					title={`Products ${data.length}`}
-					description="Manage your products here."
 				/>	
-
-				<Button onClick={() => router.push(`/${params.storeId}/products/new`)}>
-					<Plus className="mr-2 h-4 w-4" />
-					Add new
-				</Button>
 			</div>
 
-			<Separator />
 
-			<DataTable searchKey="name" columns={columns} data={data} />
+			<DataTable searchKey="name" categoryPath="products" columns={columns} data={data} />
 
 			<Heading 
 				title="API"
 				description="API calls for Products"
 			/>
-			<Separator />
 			<ApiList entityName="products" entityIdName="productId" />
 		</>
 	)

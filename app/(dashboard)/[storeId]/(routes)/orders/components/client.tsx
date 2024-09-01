@@ -15,10 +15,8 @@ export function OrderClient({ data }: OrderClientProps) {
 		<>
 			<Heading
 				title={`Orders ${data.length}`}
-				description="Manage your orders here."
 			/>
-			<Separator />
-			<DataTable searchKey="products" columns={columns} data={data} />
+			<DataTable searchKey="products" categoryPath="orders" columns={columns} data={data} />
 		</>
 	)
 }

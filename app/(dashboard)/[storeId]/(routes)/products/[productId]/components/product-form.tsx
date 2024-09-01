@@ -352,8 +352,7 @@ export function ProductForm({
                   </div>
                 </FormItem>
               )}
-            />
-
+					/>
             <FormField
               control={form.control}
               name="onSale"

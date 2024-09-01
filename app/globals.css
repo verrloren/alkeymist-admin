@@ -22,7 +22,7 @@ html, body, :root {
     --primary-foreground: 0 0% 98%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
-    --muted: #737373;
+    --muted: 240 5.9% 90%;
     --muted-foreground: #737373;
     --accent: 240 4.8% 95.9%;
     --accent-foreground: 240 5.9% 10%;
@@ -37,7 +37,7 @@ html, body, :root {
   .dark {
     --background: 0 0% 3%;
     --foreground: 0 0% 8%;
-    --card: #0A0A0A;
+    --card: 0 0% 4%;
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 4%;
     --popover-foreground: 0 0% 98%;
@@ -45,14 +45,14 @@ html, body, :root {
     --primary-foreground: 240 5.9% 10%;
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
-    --muted: #737373;
-    --muted-foreground:#737373;
+    --muted: 0 0% 14%;
+    --muted-foreground:0 0% 30%;
     --accent: 0 0% 8%;
-    --accent-foreground: 0 0% 98%;
+    --accent-foreground: 0 0% 14%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 9%;
-    --input: 0 0% 8%;
-    --ring: 0 0% 12%;
+    --input: 0 0% 14%;
+    --ring: 0 0% 80%;
   }
 }

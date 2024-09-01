@@ -18,7 +18,7 @@ export function AuthFooter({ text, src }: AuthFooterProps) {
 			cursor-pointer hover:underline hover:shadow-xl 
 			hover:border-[#dedede] dark:hover:border-neutral-700 transition-colors">
 			<Link
-				className="text-md text-neutral-200 hover:underline"
+				className="text-md dark:text-neutral-200 text-neutral-800 hover:underline"
 				href="/auth/register">
 				{text}
 			</Link>

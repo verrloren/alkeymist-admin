@@ -23,24 +23,18 @@ export function SizesClient({ data }: SizesClientProps) {
 			<div className="flex items-center justify-between">
 				<Heading
 					title={`Sizes ${data.length}`}
-					description="Manage your sizes here."
 				/>	
 
-				<Button onClick={() => router.push(`/${params.storeId}/sizes/new`)}>
-					<Plus className="mr-2 h-4 w-4" />
-					Add new
-				</Button>
+		
 			</div>
 
-			<Separator />
 
-			<DataTable searchKey="name" columns={columns} data={data} />
+			<DataTable searchKey="name" categoryPath="sizes" columns={columns} data={data} />
 
 			<Heading 
 				title="API"
 				description="API calls for Sizes"
 			/>
-			<Separator />
 			<ApiList entityName="sizes" entityIdName="sizesId" />
 		</>
 	)
