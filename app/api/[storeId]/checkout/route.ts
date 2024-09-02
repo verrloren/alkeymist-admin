@@ -50,8 +50,8 @@ export async function POST(
 					name: product.name
 				},
 				// unit_amount: Number(product.price) * 100
-				unit_amount: (product.newprice?.toNumber() === 0 ? Number(product.newprice) * 100 : Number(product.price)) * 100
-				
+				// unit_amount: (product.newprice?.toNumber() === 0 ? Number(product.newprice) * 100 : Number(product.price)) * 100
+				unit_amount: Number(product.newprice) > 0 ? Number(product.newprice) * 100 : Number(product.price) * 100
 			}
 		})
 	});
@@ -59,7 +59,7 @@ export async function POST(
 	const order = await db.order.create({
 		data: {
 			storeId: params.storeId,
-			isPaid: false,
+			isPaid: true,
 			orderItems: {
 				create: productIds.map((productId: string) => ({
 					product: {
