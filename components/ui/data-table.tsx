@@ -29,14 +29,14 @@ interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
   searchKey: string;
-	categoryPath: string;
+  categoryPath: string;
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
   searchKey,
-	categoryPath,
+  categoryPath,
 }: DataTableProps<TData, TValue>) {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const router = useRouter();
@@ -66,12 +66,16 @@ export function DataTable<TData, TValue>({
           className="max-w-sm"
         />
 
-        <Button
-          onClick={() => router.push(`/${params.storeId}/${categoryPath}/new`)}
-        >
-          <Plus className="mr-2 h-4 w-4" />
-          Add new
-        </Button>
+        {categoryPath !== "orders" && (
+          <Button
+            onClick={() =>
+              router.push(`/${params.storeId}/${categoryPath}/new`)
+            }
+          >
+            <Plus className="mr-2 h-4 w-4" />
+            Add new
+          </Button>
+        )}
       </div>
 
       <div className="rounded-md border border-neutral-200 dark:border-neutral-800">
