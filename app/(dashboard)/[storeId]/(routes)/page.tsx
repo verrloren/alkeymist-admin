@@ -22,7 +22,7 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
 	const graphRevenue = await getGraphRevenue(params.storeId);
 
 	return (
-		<div className="flex-col dark:bg-[#030303]">
+		<div className="min-h-screen flex-col dark:bg-[#030303]">
 			<div className="flex-1 space-y-4 p-8 pt-6">
 				{/* <Heading title="Dashboard" description="Overview of your store" /> */}
 				<div className="grid gap-4 grid-cols-3">

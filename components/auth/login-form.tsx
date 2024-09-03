@@ -19,6 +19,8 @@ import { FormSuccess } from "@/components/auth/form-success";
 import { login } from "@/actions/login";
 import { useState, useTransition } from "react";
 import { useSearchParams } from "next/navigation";
+import { Social } from "@/components/auth/social";
+
 
 export const LoginForm = () => {
   const searchParams = useSearchParams();
@@ -57,7 +59,7 @@ export const LoginForm = () => {
   return (
     <div className="w-full">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="2xl:space-y-8 space-y-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col justify-center gap-y-2 2xl:gap-y-4">
           <FormField
             control={form.control}
             name="email"
@@ -101,13 +103,17 @@ export const LoginForm = () => {
 
           <Button
             disabled={isPending}
-            className="w-full"
+            className="w-full mt-2"
             type="submit"
           >
             Login
           </Button>
         </form>
       </Form>
+
+			<div className="w-full mt-6 mb-16 lg:mb-12">
+				<Social />
+			</div>
     </div>
   );
 };

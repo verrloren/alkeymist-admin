@@ -12,9 +12,10 @@ import { FormSuccess } from "@/components/auth/form-success";
 import { useState, useTransition } from "react";
 import { register } from "@/actions/register";
 import { useRouter } from "next/navigation";
+import { Social } from "./social";
 
 export const RegisterForm = () => {
-
+	
 	const router = useRouter();
 	const [error, setError] = useState<string | undefined>("");
 	const [success, setSuccess] = useState<string | undefined>("");
@@ -51,7 +52,7 @@ export const RegisterForm = () => {
 	return (
 		<div className="w-full">
 			<Form {...form}>
-				<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 2xl:space-y-8">
+				<form onSubmit={form.handleSubmit(onSubmit)} className="flex justify-center flex-col gap-y-2 2xl:space-y-4">
 
 					<FormField
 						control={form.control}
@@ -98,9 +99,13 @@ export const RegisterForm = () => {
 					<FormError message={error} />
 					<FormSuccess message={success} />
 
-					<Button disabled={isPending} className="w-full" type="submit">Sign up</Button>
+					<Button disabled={isPending} className="w-full mt-4 2xl:my-2" type="submit">Sign up</Button>
 				</form>
 			</Form>
+			<div className="w-full mt-6 mb-16 lg:mb-12">
+				<Social />
+			</div>
+
 		</div>
 	)
 }

@@ -48,7 +48,7 @@ html, body, :root {
     --muted: 0 0% 14%;
     --muted-foreground:0 0% 30%;
     --accent: 0 0% 8%;
-    --accent-foreground: 0 0% 14%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 9%;

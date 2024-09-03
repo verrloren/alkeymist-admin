@@ -7,7 +7,7 @@ interface RegisterPageProps {}
 export default function RegisterPage({}: RegisterPageProps) {
   return (
     <>
-      <div className="w-full h-full dark:bg-[#030303] flex flex-col justify-center items-center gap-y-8">
+      <div className="relative w-full h-screen dark:bg-[#030303] flex flex-col justify-center items-center gap-y-4">
         <h1 className="w-full 2xl:text-6xl text-5xl  font-semibold text-center">
           Create an account
         </h1>
